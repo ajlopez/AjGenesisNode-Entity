@@ -1,29 +1,6 @@
 
-var path = require('path');
-
-function getName(name) {
-    return name.toLowerCase();
-}
-
-function getSetName(name) {
-    return getPlural(getName(name));
-}
-
-function getDescriptor(name) {
-    return name[0].toUpperCase() + name.slice(1);
-}
-
-function getSetDescriptor(name) {
-    return getPlural(getDescriptor(name));
-}
-
-function getDescription(name) {
-    return getName(name);
-}
-
-function getPlural(name) {
-    return name + 's';
-}
+var path = require('path'),
+    names = require('./lib/names');
 
 module.exports = function (model, args, ajgenesis, cb) {
     var entityname = args[0];
@@ -33,11 +10,11 @@ module.exports = function (model, args, ajgenesis, cb) {
     var filename = path.join('ajgenesis', 'models', entityname + '.json');
     
     var entitymodel = {
-        name: getName(entityname),
-        setname: getSetName(entityname),
-        descriptor: getDescriptor(entityname),
-        setdescriptor: getSetDescriptor(entityname),
-        description: getDescription(entityname)
+        name: names.getName(entityname),
+        setname: names.getSetName(entityname),
+        descriptor: names.getDescriptor(entityname),
+        setdescriptor: names.getSetDescriptor(entityname),
+        description: names.getDescription(entityname)
     }
     
     ajgenesis.fileTransform(template, filename, entitymodel);

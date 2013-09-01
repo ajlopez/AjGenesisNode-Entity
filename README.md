@@ -1,6 +1,6 @@
 # AjGenesisNode Entity
 
-AjGenesisNode Entity tasks and templates.
+AjGenesisNode Entity tasks and templates. WIP.
 
 ## Installation
 
