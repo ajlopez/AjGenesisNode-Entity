@@ -25,7 +25,9 @@ module.exports = function (model, args, ajgenesis, cb) {
         });
     });
     
-    fs.writeFileSync(filename, JSON.stringify(model, null, 4));
+    var text = JSON.stringify(model, null, 4);
+    
+    fs.writeFileSync(filename, text);
     
     cb();
 }

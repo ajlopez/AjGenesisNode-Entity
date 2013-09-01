@@ -40,8 +40,64 @@ exports['add property customer name'] = function (test) {
             test.equal(property.descriptor, "Name");
             
             removeDirSync(path.join(__dirname, 'ajgenesis'));
-                
             test.done();
+        });
+    });
+    
+    process.chdir(cwd);
+}
+
+exports['add properties supplier name and address'] = function (test) {
+    test.async();
+    
+    var cwd = process.cwd();
+    
+    process.chdir('test');
+    
+    addtask(null, ['supplier'], ajgenesis, function (err) {
+        if (err)
+            throw err;
+            
+        addpropertytask(null, ['supplier', 'name'], ajgenesis, function (err) {            
+            if (err)
+                throw err;
+                
+            addpropertytask(null, ['supplier', 'address'], ajgenesis, function (err) {            
+                if (err)
+                    throw err;
+                    
+                var model = ajgenesis.loadModel(path.join(__dirname, 'ajgenesis', 'models', 'supplier.json'));
+                
+                test.ok(model);
+                test.ok(model.entities);
+                test.ok(Array.isArray(model.entities));
+                test.equal(model.entities.length, 1);
+                
+                var entity = model.entities[0];
+                
+                test.equal(entity.name, "supplier");
+                test.equal(entity.setname, "suppliers");
+                test.equal(entity.descriptor, "Supplier");
+                test.equal(entity.setdescriptor, "Suppliers");
+
+                test.ok(entity.properties);
+                test.ok(Array.isArray(entity.properties));
+                test.equal(entity.properties.length, 2);
+                
+                var property = entity.properties[0];
+                
+                test.equal(property.name, "name");
+                test.equal(property.descriptor, "Name");
+                
+                property = entity.properties[1];
+                
+                test.equal(property.name, "address");
+                test.equal(property.descriptor, "Address");
+                
+                removeDirSync(path.join(__dirname, 'ajgenesis'));
+                    
+                test.done();
+            });
         });
     });
     
