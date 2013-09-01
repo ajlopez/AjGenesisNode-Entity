@@ -43,3 +43,4 @@ module.exports = function (model, args, ajgenesis, cb) {
     ajgenesis.fileTransform(template, filename, entitymodel);
     cb();
 }
+
