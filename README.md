@@ -21,6 +21,16 @@ Add a property `address` to entity `customer`
 ```
 ajgenesis entity:addproperty customer address
 ```
+## Development
+
+```
+npm install -g ajgenesis
+git clone git://github.com/ajlopez/AjGenesisNode-Entity.git
+cd AjGenesisNode-Entity
+npm link ajgenesis
+npm install
+npm test
+```
 
 ## Versions
 
