@@ -9,7 +9,7 @@ module.exports = function (model, args, ajgenesis, cb) {
     var name = names.getName(propertyname);
     var descriptor = names.getDescriptor(propertyname);
     
-    var filename = path.join('ajgenesis', 'models', entityname + '.json');
+    var filename = path.join('models', entityname + '.json');
     var model = require(path.resolve(filename));
     
     model.entities.forEach(function (entity) {

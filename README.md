@@ -15,7 +15,7 @@ Add an entity to the current AjGenesis project
 ```
 ajgenesis entity:add customer
 ```
-It adds a `ajgenesis/models/customer.json` file with an entity named customer.
+It adds a `models/customer.json` file with an entity named customer.
 
 Add a property `address` to entity `customer`
 ```
@@ -35,6 +35,7 @@ npm test
 ## Versions
 
 - 0.0.1: Published
+- 0.0.2: Published. It uses `models` directory instead of `ajgenesis/models`.
 
 ## Contribution
 
