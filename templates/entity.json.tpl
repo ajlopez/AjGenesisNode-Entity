@@ -1,1 +1,1 @@
-{    "entities": [        {            "name": "${name}",            "setname": "${setname}",            "descriptor": "${descriptor}",            "setdescriptor": "${setdescriptor}",            "description": "${description}"        }    ]}
+<#var nprops = Object.keys(properties).length;var nprop = 0;#>{    "entities": [        {<# for (var n in properties) { #>            "${n}": "${properties[n]}"<# nprop++; if (nprop < nprops) writer.write(','); } #>        }    ]}

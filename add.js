@@ -10,11 +10,20 @@ module.exports = function (model, args, ajgenesis, cb) {
     var filename = path.join('models', entityname + '.json');
     
     var entitymodel = {
-        name: names.getName(entityname),
-        setname: names.getSetName(entityname),
-        descriptor: names.getDescriptor(entityname),
-        setdescriptor: names.getSetDescriptor(entityname),
-        description: names.getDescription(entityname)
+        properties: {}
+    }
+    
+    entitymodel.properties.name = names.getName(entityname);
+    entitymodel.properties.setname = names.getSetName(entityname);
+    entitymodel.properties.descriptor = names.getDescriptor(entityname);
+    entitymodel.properties.setdescriptor = names.getSetDescriptor(entityname);
+    entitymodel.properties.description = names.getDescription(entityname);
+    
+    for (var k = 1; k < args.length; k++) {
+        var parval = names.getParameterValue(args[k]);
+
+        if (parval && parval.name && parval.value)
+            entitymodel.properties[parval.name] = parval.value;
     }
     
     ajgenesis.fileTransform(template, filename, entitymodel);
