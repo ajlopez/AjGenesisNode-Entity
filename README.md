@@ -36,6 +36,7 @@ npm test
 
 - 0.0.1: Published
 - 0.0.2: Published. It uses `models` directory instead of `ajgenesis/models`.
+- 0.0.3: Published. add and addproperty process parameters.
 
 ## Contribution
 
