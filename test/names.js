@@ -31,3 +31,29 @@ exports['Get plural'] = function (test) {
 exports['Get plural for null'] = function (test) {
     test.equal(names.getPlural(null), null);
 };
+
+exports['Get parameter value'] = function (test) {
+    var result = names.getParameterValue("name=customer");
+    
+    test.ok(result);
+    test.equal(result.name, "name");
+    test.equal(result.value, "customer");
+};
+
+exports['Get parameter with integer value'] = function (test) {
+    var result = names.getParameterValue("name=123");
+    
+    test.ok(result);
+    test.equal(result.name, "name");
+    test.equal(result.value, 123);
+    test.ok(typeof result.value == 'number');
+};
+
+exports['Get parameter without value'] = function (test) {
+    var result = names.getParameterValue("name");
+    
+    test.ok(result);
+    test.equal(result.name, "name");
+    test.equal(result.value, null);
+};
+
