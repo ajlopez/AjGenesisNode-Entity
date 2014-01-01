@@ -23,7 +23,7 @@ module.exports = function (model, args, ajgenesis, cb) {
     
     var filename = path.join('models', entityname + '.json');
     var model = require(path.resolve(filename));
-    console.dir(model);
+
     // quick hack
     model.entities = [ model.entities[0] ];
     
