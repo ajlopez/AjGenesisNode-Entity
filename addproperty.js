@@ -23,16 +23,16 @@ module.exports = function (model, args, ajgenesis, cb) {
     
     var filename = path.join('models', entityname + '.json');
     var model = require(path.resolve(filename));
+    console.dir(model);
+    // quick hack
+    model.entities = [ model.entities[0] ];
     
-    model.entities.forEach(function (entity) {
-        if (entity.name != entityname)
-            return;
+    var entity = model.entities[0];
+    
+    if (!entity.properties)
+        entity.properties = [];
             
-        if (!entity.properties)
-            entity.properties = [];
-            
-        entity.properties.push(property);
-    });
+    entity.properties.push(property);
     
     var text = JSON.stringify(model, null, 4);
     
