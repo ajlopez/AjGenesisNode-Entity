@@ -49,6 +49,24 @@ exports['Get parameter with integer value'] = function (test) {
     test.ok(typeof result.value == 'number');
 };
 
+exports['Get parameter with boolean true value'] = function (test) {
+    var result = names.getParameterValue("required=true");
+    
+    test.ok(result);
+    test.equal(result.name, "required");
+    test.equal(result.value, true);
+    test.ok(typeof result.value == 'boolean');
+};
+
+exports['Get parameter with boolean false value'] = function (test) {
+    var result = names.getParameterValue("required=false");
+    
+    test.ok(result);
+    test.equal(result.name, "required");
+    test.equal(result.value, false);
+    test.ok(typeof result.value == 'boolean');
+};
+
 exports['Get parameter without value'] = function (test) {
     var result = names.getParameterValue("name");
     

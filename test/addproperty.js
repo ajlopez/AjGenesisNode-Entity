@@ -58,11 +58,11 @@ exports['add properties supplier name and address'] = function (test) {
         if (err)
             throw err;
             
-        addpropertytask(null, ['supplier', 'name'], ajgenesis, function (err) {            
+        addpropertytask(null, ['supplier', 'name', 'notes=My Notes'], ajgenesis, function (err) {            
             if (err)
                 throw err;
                 
-            addpropertytask(null, ['supplier', 'address'], ajgenesis, function (err) {            
+            addpropertytask(null, ['supplier', 'address', 'required=true'], ajgenesis, function (err) {            
                 if (err)
                     throw err;
                     
@@ -88,11 +88,13 @@ exports['add properties supplier name and address'] = function (test) {
                 
                 test.equal(property.name, "name");
                 test.equal(property.descriptor, "Name");
+                test.equal(property.notes, "My Notes");
                 
                 property = entity.properties[1];
                 
                 test.equal(property.name, "address");
                 test.equal(property.descriptor, "Address");
+                test.equal(property.required, true);
                 
                 removeDirSync(path.join(__dirname, 'models'));
                     

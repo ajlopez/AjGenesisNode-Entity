@@ -9,6 +9,18 @@ module.exports = function (model, args, ajgenesis, cb) {
     var name = names.getName(propertyname);
     var descriptor = names.getDescriptor(propertyname);
     
+    var property = {
+        name: name,
+        descriptor: descriptor
+    };
+
+    for (var k = 2; k < args.length; k++) {
+        var parval = names.getParameterValue(args[k]);
+
+        if (parval && parval.name && parval.value)
+            property[parval.name] = parval.value;
+    }
+    
     var filename = path.join('models', entityname + '.json');
     var model = require(path.resolve(filename));
     
@@ -19,10 +31,7 @@ module.exports = function (model, args, ajgenesis, cb) {
         if (!entity.properties)
             entity.properties = [];
             
-        entity.properties.push({
-            name: name,
-            descriptor: descriptor
-        });
+        entity.properties.push(property);
     });
     
     var text = JSON.stringify(model, null, 4);
