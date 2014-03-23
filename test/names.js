@@ -68,10 +68,19 @@ exports['Get parameter with boolean false value'] = function (test) {
 };
 
 exports['Get parameter without value as boolean flag'] = function (test) {
-    var result = names.getParameterValue("name");
+    var result = names.getParameterValue("required");
     
     test.ok(result);
-    test.equal(result.name, "name");
+    test.equal(result.name, "required");
     test.strictEqual(result.value, true);
 };
+
+exports['Get parameter with null value'] = function (test) {
+    var result = names.getParameterValue("email=null");
+    
+    test.ok(result);
+    test.equal(result.name, "email");
+    test.strictEqual(result.value, null);
+};
+
 
