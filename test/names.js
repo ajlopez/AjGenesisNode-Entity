@@ -67,11 +67,11 @@ exports['Get parameter with boolean false value'] = function (test) {
     test.ok(typeof result.value == 'boolean');
 };
 
-exports['Get parameter without value'] = function (test) {
+exports['Get parameter without value as boolean flag'] = function (test) {
     var result = names.getParameterValue("name");
     
     test.ok(result);
     test.equal(result.name, "name");
-    test.equal(result.value, null);
+    test.strictEqual(result.value, true);
 };
 
