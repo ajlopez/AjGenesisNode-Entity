@@ -2,6 +2,7 @@
 var addtask = require('../add'),
     path = require('path'),
     fs = require('fs'),
+    fsutils = require('./lib/fsutils'),
     ajgenesis = require('ajgenesis');
     
 exports['add customer entity'] = function (test) {
@@ -29,7 +30,7 @@ exports['add customer entity'] = function (test) {
         test.equal(entity.descriptor, "Customer");
         test.equal(entity.setdescriptor, "Customers");
         
-        removeDirSync(path.join(__dirname, 'models'));
+        fsutils.removeDirSync(path.join(__dirname, 'models'));
             
         test.done();
     });
@@ -63,41 +64,10 @@ exports['add company entity'] = function (test) {
         test.equal(entity.setdescriptor, "ManyCompanies");
         test.equal(entity.notes, "My notes");
         
-        removeDirSync(path.join(__dirname, 'models'));
+        fsutils.removeDirSync(path.join(__dirname, 'models'));
             
         test.done();
     });
     
     process.chdir(cwd);
-}
-
-function removeDirSync(dirname) {
-    var filenames = fs.readdirSync(dirname);
-    
-    filenames.forEach(function (filename) {
-        filename = path.join(dirname, filename);
-        
-        if (isDirectory(filename))
-            removeDirSync(filename);
-        else
-            removeFileSync(filename);
-    });
-    
-    fs.rmdirSync(dirname);
-}
-
-function removeFileSync(filename) {
-    fs.unlinkSync(filename);
-}
-
-function isDirectory(filename)
-{
-    try {
-        var stats = fs.lstatSync(filename);
-        return stats.isDirectory();
-    }
-    catch (err)
-    {
-        return false;
-    }
 }
