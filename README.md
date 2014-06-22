@@ -8,8 +8,15 @@ Install [AjGenesis for Node](https://github.com/ajlopez/AjGenesisNode) globally 
 ```
 npm install -g ajgenesis
 ```
+On Linux, you should use `sudo` to install a module globally.
 
 ## Usage
+
+In your project directory, run:
+```
+npm install ajgenesisnode-entity
+```
+in order to have this module available.
 
 Add an entity to the current AjGenesis project
 ```
@@ -38,6 +45,7 @@ npm test
 - 0.0.2: Published. It uses `models` directory instead of `ajgenesis/models`.
 - 0.0.3: Published. add and addproperty process parameters.
 - 0.0.4: Published. Fixing add property bug, using a hack.
+- 0.0.5: Using `ajgenesis/models` for model files.
 
 ## Contribution
 

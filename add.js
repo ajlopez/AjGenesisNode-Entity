@@ -5,9 +5,9 @@ var path = require('path'),
 module.exports = function (model, args, ajgenesis, cb) {
     var entityname = args[0];
     
-    ajgenesis.createDirectory('models');
+    ajgenesis.createDirectory('ajgenesis', 'models');
     var template = path.join(__dirname, 'templates', 'entity.json.tpl');
-    var filename = path.join('models', entityname + '.json');
+    var filename = path.join('ajgenesis', 'models', entityname + '.json');
     
     var entitymodel = {
         properties: {}

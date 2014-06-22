@@ -15,7 +15,7 @@ exports['add customer entity'] = function (test) {
         if (err)
             throw err;
             
-        var model = ajgenesis.loadModel(path.join(__dirname, 'models', 'customer.json'));
+        var model = ajgenesis.loadModel('customer');
         
         test.ok(model);
         test.ok(model.entities);
@@ -29,7 +29,7 @@ exports['add customer entity'] = function (test) {
         test.equal(entity.descriptor, "Customer");
         test.equal(entity.setdescriptor, "Customers");
         
-        removeDirSync(path.join(__dirname, 'models'));
+        removeDirSync(path.join(__dirname, 'ajgenesis'));
             
         test.done();
     });
@@ -48,7 +48,7 @@ exports['add company entity'] = function (test) {
         if (err)
             throw err;
             
-        var model = ajgenesis.loadModel(path.join(__dirname, 'models', 'company.json'));
+        var model = ajgenesis.loadModel('company');
         
         test.ok(model);
         test.ok(model.entities);
@@ -63,7 +63,7 @@ exports['add company entity'] = function (test) {
         test.equal(entity.setdescriptor, "ManyCompanies");
         test.equal(entity.notes, "My notes");
         
-        removeDirSync(path.join(__dirname, 'models'));
+        removeDirSync(path.join(__dirname, 'ajgenesis'));
             
         test.done();
     });

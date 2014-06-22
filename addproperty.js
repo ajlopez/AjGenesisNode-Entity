@@ -21,7 +21,7 @@ module.exports = function (model, args, ajgenesis, cb) {
             property[parval.name] = parval.value;
     }
     
-    var filename = path.join('models', entityname + '.json');
+    var filename = path.join('ajgenesis', 'models', entityname + '.json');
     var model = require(path.resolve(filename));
 
     // quick hack

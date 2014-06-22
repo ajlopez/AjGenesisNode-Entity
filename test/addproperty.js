@@ -16,7 +16,7 @@ exports['add property customer name'] = function (test) {
             throw err;
             
         addpropertytask(null, ['customer', 'name'], ajgenesis, function (err) {            
-            var model = ajgenesis.loadModel(path.join(__dirname, 'models', 'customer.json'));
+            var model = ajgenesis.loadModel(path.join(__dirname, 'ajgenesis', 'models', 'customer.json'));
             
             test.ok(model);
             test.ok(model.entities);
@@ -39,7 +39,7 @@ exports['add property customer name'] = function (test) {
             test.equal(property.name, "name");
             test.equal(property.descriptor, "Name");
             
-            removeDirSync(path.join(__dirname, 'models'));
+            removeDirSync(path.join(__dirname, 'ajgenesis'));
             test.done();
         });
     });
@@ -66,7 +66,7 @@ exports['add properties supplier name and address'] = function (test) {
                 if (err)
                     throw err;
                     
-                var model = ajgenesis.loadModel(path.join(__dirname, 'models', 'supplier.json'));
+                var model = ajgenesis.loadModel(path.join(__dirname, 'ajgenesis', 'models', 'supplier.json'));
                 
                 test.ok(model);
                 test.ok(model.entities);
@@ -96,7 +96,7 @@ exports['add properties supplier name and address'] = function (test) {
                 test.equal(property.descriptor, "Address");
                 test.equal(property.required, true);
                 
-                removeDirSync(path.join(__dirname, 'models'));
+                removeDirSync(path.join(__dirname, 'ajgenesis'));
                     
                 test.done();
             });
