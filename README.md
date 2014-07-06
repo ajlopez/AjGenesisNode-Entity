@@ -46,6 +46,7 @@ npm test
 - 0.0.3: Published. add and addproperty process parameters
 - 0.0.4: Published. Fixing add property bug, using a hack
 - 0.0.5: Using `ajgenesis/models` for model files
+- 0.0.6: Use createModelDirectory, getModelDirectory
 
 ## Contribution
 
