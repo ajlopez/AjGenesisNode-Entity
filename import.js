@@ -10,6 +10,8 @@ module.exports = function (model, args, ajgenesis, cb) {
         return;
     }
         
+    ajgenesis.createModelDirectory();
+        
     for (var n in model.entities) {
         var entity = model.entities[n];
         var entitymodel = { entities: [ entity ] };
