@@ -18,7 +18,10 @@ function install(ajgenesis, cb) {
         ajgenesis.copyFile(path.join(__dirname, 'import.js'), path.join('ajgenesis', 'modules', 'entity', 'import.js'), next);
     })
     .then(function (data, next) {
-        ajgenesis.copyDirectory(path.join(__dirname, 'templates'), path.join('ajgenesis', 'modules', 'entity', 'templates'), cb);
+        ajgenesis.copyDirectory(path.join(__dirname, 'templates'), path.join('ajgenesis', 'modules', 'entity', 'templates'), next);
+    })
+    .then(function (data, next) {
+        ajgenesis.copyDirectory(path.join(__dirname, 'lib'), path.join('ajgenesis', 'modules', 'entity', 'lib'), cb);
     })
     .fail(function (err) {
         cb(err, null);

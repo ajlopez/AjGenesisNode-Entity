@@ -21,6 +21,8 @@ exports['Install module'] = function (test) {
         test.ok(fs.existsSync(path.join('ajgenesis', 'modules', 'entity', 'import.js')));
         test.ok(fs.existsSync(path.join('ajgenesis', 'modules', 'entity', 'templates')));
         test.ok(fs.existsSync(path.join('ajgenesis', 'modules', 'entity', 'templates', 'entity.json.tpl')));
+        test.ok(fs.existsSync(path.join('ajgenesis', 'modules', 'entity', 'lib')));
+        test.ok(fs.existsSync(path.join('ajgenesis', 'modules', 'entity', 'lib', 'names.js')));
         process.chdir(cwd);
         test.done();
     });
