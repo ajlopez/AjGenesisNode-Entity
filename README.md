@@ -45,9 +45,10 @@ npm test
 - 0.0.2: Published. It uses `models` directory instead of `ajgenesis/models`
 - 0.0.3: Published. add and addproperty process parameters
 - 0.0.4: Published. Fixing add property bug, using a hack
-- 0.0.5: Using `ajgenesis/models` for model files
-- 0.0.6: Use createModelDirectory, getModelDirectory
-- 0.0.7: Install method
+- 0.0.5: Published. Using `ajgenesis/models` for model files
+- 0.0.6: Published. Use createModelDirectory, getModelDirectory
+- 0.0.7: Published. Install method
+- 0.0.8: Published. Copy lib directory on install
 
 ## Contribution
 

@@ -1,7 +1,7 @@
 { "name": "ajgenesisnode-entity"
 , "description": "AjGenesis for Node, Entity tasks and templates"
 , "keywords": [ "codegeneration", "nodejs", "ajgenesis" ]
-, "version": "0.0.7"
+, "version": "0.0.8"
 , "author": "Angel 'Java' Lopez <webmaster@ajlopez.com> (http://www.ajlopez.com)"
 , "repository": { "type": "git", "url": "git://github.com/ajlopez/AjGenesisNode-Entity.git" }
 , "main": "./index.js"
