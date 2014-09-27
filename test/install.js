@@ -1,5 +1,5 @@
 
-var hello = require('..');
+var entity = require('..');
 var path = require('path');
 var fs = require('fs');
 var ajgenesis = require('ajgenesis');
@@ -11,14 +11,16 @@ exports['Install module'] = function (test) {
     
     process.chdir(__dirname);
     
-    hello.install(ajgenesis, function (err, data) {
+    entity.install(ajgenesis, function (err, data) {
         test.ok(!err);
-        fs.existsSync('ajgenesis');
-        fs.existsSync(path.join('ajgenesis', 'modules'));
-        fs.existsSync(path.join('ajgenesis', 'modules', 'entity'));
-        fs.existsSync(path.join('ajgenesis', 'modules', 'entity', 'add.js'));
-        fs.existsSync(path.join('ajgenesis', 'modules', 'entity', 'addproperty.js'));
-        fs.existsSync(path.join('ajgenesis', 'modules', 'entity', 'import.js'));
+        test.ok(fs.existsSync('ajgenesis'));
+        test.ok(fs.existsSync(path.join('ajgenesis', 'modules')));
+        test.ok(fs.existsSync(path.join('ajgenesis', 'modules', 'entity')));
+        test.ok(fs.existsSync(path.join('ajgenesis', 'modules', 'entity', 'add.js')));
+        test.ok(fs.existsSync(path.join('ajgenesis', 'modules', 'entity', 'addproperty.js')));
+        test.ok(fs.existsSync(path.join('ajgenesis', 'modules', 'entity', 'import.js')));
+        test.ok(fs.existsSync(path.join('ajgenesis', 'modules', 'entity', 'templates')));
+        test.ok(fs.existsSync(path.join('ajgenesis', 'modules', 'entity', 'templates', 'entity.json.tpl')));
         process.chdir(cwd);
         test.done();
     });
