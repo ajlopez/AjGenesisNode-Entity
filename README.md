@@ -49,6 +49,7 @@ npm test
 - 0.0.6: Published. Use createModelDirectory, getModelDirectory
 - 0.0.7: Published. Install method
 - 0.0.8: Published. Copy lib directory on install
+- 0.0.9: Published. Using entities folder in model
 
 ## Contribution
 
