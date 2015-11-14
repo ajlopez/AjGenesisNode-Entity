@@ -5,17 +5,18 @@ var path = require('path'),
 module.exports = function (model, args, ajgenesis, cb) {
     var model = ajgenesis.loadModel(args[0]);
     
-    if (!model || !model.entities || !Array.isArray(model.entities)) {
+    if (!model || !model.entities || typeof model.entities != 'object') {
         cb(null, null);
         return;
     }
         
     ajgenesis.createModelDirectory();
-        
+    ajgenesis.createDirectory(ajgenesis.getModelDirectory(), 'entities');
+    
     for (var n in model.entities) {
         var entity = model.entities[n];
-        var entitymodel = { entities: [ entity ] };
-        ajgenesis.saveModel(entity.name, entitymodel);
+        var filename = path.join(ajgenesis.getModelDirectory(), 'entities', entity.name + '.json');
+        ajgenesis.saveModel(filename, entity);
     }
     
     cb(null, null);

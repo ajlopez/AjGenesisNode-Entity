@@ -16,14 +16,13 @@ exports['add customer entity'] = function (test) {
         if (err)
             throw err;
             
-        var model = ajgenesis.loadModel('customer');
+        var model = ajgenesis.loadModel();
         
         test.ok(model);
         test.ok(model.entities);
-        test.ok(Array.isArray(model.entities));
-        test.equal(model.entities.length, 1);
+        test.ok(model.entities.customer);
         
-        var entity = model.entities[0];
+        var entity = model.entities.customer;
         
         test.equal(entity.name, "customer");
         test.equal(entity.setname, "customers");
@@ -49,14 +48,13 @@ exports['add company entity'] = function (test) {
         if (err)
             throw err;
             
-        var model = ajgenesis.loadModel('company');
+        var model = ajgenesis.loadModel();
         
         test.ok(model);
         test.ok(model.entities);
-        test.ok(Array.isArray(model.entities));
-        test.equal(model.entities.length, 1);
+        test.ok(model.entities.company);
         
-        var entity = model.entities[0];
+        var entity = model.entities.company;
         
         test.equal(entity.name, "company");
         test.equal(entity.setname, "companies");

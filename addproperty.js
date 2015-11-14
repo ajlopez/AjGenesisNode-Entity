@@ -21,20 +21,15 @@ module.exports = function (model, args, ajgenesis, cb) {
             property[parval.name] = parval.value;
     }
     
-    var filename = path.join(ajgenesis.getModelDirectory(), entityname + '.json');
-    var model = require(path.resolve(filename));
-
-    // quick hack
-    model.entities = [ model.entities[0] ];
-    
-    var entity = model.entities[0];
+    var filename = path.join(ajgenesis.getModelDirectory(), 'entities', entityname + '.json');
+    var entity = require(path.resolve(filename));
     
     if (!entity.properties)
         entity.properties = [];
             
     entity.properties.push(property);
     
-    var text = JSON.stringify(model, null, 4);
+    var text = JSON.stringify(entity, null, 4);
     
     fs.writeFileSync(filename, text);
     

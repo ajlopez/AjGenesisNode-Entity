@@ -11,20 +11,20 @@ exports['add property customer name'] = function (test) {
     var cwd = process.cwd();
     
     process.chdir('test');
+    fsutils.removeDirSync('ajgenesis');
     
     addtask(null, ['customer'], ajgenesis, function (err) {
         if (err)
             throw err;
             
         addpropertytask(null, ['customer', 'name'], ajgenesis, function (err) {            
-            var model = ajgenesis.loadModel(path.join(__dirname, 'ajgenesis', 'models', 'customer.json'));
+            var model = ajgenesis.loadModel(path.join(__dirname, 'ajgenesis', 'models'));
             
             test.ok(model);
             test.ok(model.entities);
-            test.ok(Array.isArray(model.entities));
-            test.equal(model.entities.length, 1);
+            test.ok(model.entities.customer);
             
-            var entity = model.entities[0];
+            var entity = model.entities.customer;
             
             test.equal(entity.name, "customer");
             test.equal(entity.setname, "customers");
@@ -67,14 +67,13 @@ exports['add properties supplier name and address'] = function (test) {
                 if (err)
                     throw err;
                     
-                var model = ajgenesis.loadModel(path.join(__dirname, 'ajgenesis', 'models', 'supplier.json'));
+                var model = ajgenesis.loadModel(path.join(__dirname, 'ajgenesis', 'models'));
                 
                 test.ok(model);
                 test.ok(model.entities);
-                test.ok(Array.isArray(model.entities));
-                test.equal(model.entities.length, 1);
+                test.ok(model.entities.supplier);
                 
-                var entity = model.entities[0];
+                var entity = model.entities.supplier;
                 
                 test.equal(entity.name, "supplier");
                 test.equal(entity.setname, "suppliers");

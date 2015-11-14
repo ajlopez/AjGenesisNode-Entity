@@ -21,13 +21,15 @@ exports['import entities'] = function (test) {
         
         test.ok(model);        
         test.ok(model.entities);
-        test.ok(Array.isArray(model.entities));
-        test.equal(model.entities.length, 2);
+        test.ok(model.entities.customer);
+        test.ok(model.entities.supplier);
         
-        var entity = model.entities[0];        
+        var entity = model.entities.customer;        
         test.equal(entity.name, "customer");
-        var entity = model.entities[1];
+        var entity = model.entities.supplier;
         test.equal(entity.name, "supplier");
+
+        fsutils.removeDirSync(path.join(__dirname, 'ajgenesis'));
             
         process.chdir(cwd);
         

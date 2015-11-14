@@ -1,0 +1,13 @@
+{
+    "name": "supplier",
+    "setname": "suppliers",
+    "descriptor": "Supplier",
+    "setdescriptor": "Suppliers",
+    "description": "supplier",
+    "properties": [
+        {
+            "name": "name",
+            "descriptor": "Name"
+        }
+    ]
+}

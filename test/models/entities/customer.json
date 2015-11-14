@@ -1,0 +1,13 @@
+{
+    "name": "customer",
+    "setname": "customers",
+    "descriptor": "Customer",
+    "setdescriptor": "Customers",
+    "description": "customer",
+    "properties": [
+        {
+            "name": "name",
+            "descriptor": "Name"
+        }
+    ]
+}
