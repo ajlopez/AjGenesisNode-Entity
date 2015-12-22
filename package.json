@@ -1,18 +1,28 @@
-{ "name": "ajgenesisnode-entity"
-, "description": "AjGenesis for Node, Entity tasks and templates"
-, "keywords": [ "codegeneration", "nodejs", "ajgenesis" ]
-, "version": "0.0.9"
-, "author": "Angel 'Java' Lopez <webmaster@ajlopez.com> (http://www.ajlopez.com)"
-, "repository": { "type": "git", "url": "git://github.com/ajlopez/AjGenesisNode-Entity.git" }
-, "main": "./index.js"
-, "engines": { "node": ">= 0.10.0" }
-, "scripts": {
+{
+  "name": "ajgenesisnode-entity",
+  "description": "AjGenesis for Node, Entity tasks and templates",
+  "keywords": [
+    "codegeneration",
+    "nodejs",
+    "ajgenesis"
+  ],
+  "version": "0.0.9",
+  "author": "Angel 'Java' Lopez <webmaster@ajlopez.com> (http://www.ajlopez.com)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ajlopez/AjGenesisNode-Entity.git"
+  },
+  "main": "./index.js",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "scripts": {
     "test": "simpleunit ./test"
-  }
-, "dependencies": {
-    "simpleasync": "0.0.5"
-  }
-, "devDependencies": {
+  },
+  "dependencies": {
+    "simpleasync": "0.0.6"
+  },
+  "devDependencies": {
     "simpleunit": "0.0.6"
   }
 }

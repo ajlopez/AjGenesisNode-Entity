@@ -3,25 +3,25 @@ var path = require('path');
 var async = require('simpleasync');
 
 function install(ajgenesis, cb) {
-    ajgenesis.createDirectory('ajgenesis');
-    ajgenesis.createDirectory(path.join('ajgenesis', 'modules'));
-    ajgenesis.createDirectory(path.join('ajgenesis', 'modules', 'entity'));
+    ajgenesis.fs.createDirectory('ajgenesis');
+    ajgenesis.fs.createDirectory(path.join('ajgenesis', 'modules'));
+    ajgenesis.fs.createDirectory(path.join('ajgenesis', 'modules', 'entity'));
     
     async()
     .then(function (data, next) {
-        ajgenesis.copyFile(path.join(__dirname, 'add.js'), path.join('ajgenesis', 'modules', 'entity', 'add.js'), next);
+        ajgenesis.fs.copyFile(path.join(__dirname, 'add.js'), path.join('ajgenesis', 'modules', 'entity', 'add.js'), next);
     })
     .then(function (data, next) {
-        ajgenesis.copyFile(path.join(__dirname, 'addproperty.js'), path.join('ajgenesis', 'modules', 'entity', 'addproperty.js'), next);
+        ajgenesis.fs.copyFile(path.join(__dirname, 'addproperty.js'), path.join('ajgenesis', 'modules', 'entity', 'addproperty.js'), next);
     })
     .then(function (data, next) {
-        ajgenesis.copyFile(path.join(__dirname, 'import.js'), path.join('ajgenesis', 'modules', 'entity', 'import.js'), next);
+        ajgenesis.fs.copyFile(path.join(__dirname, 'import.js'), path.join('ajgenesis', 'modules', 'entity', 'import.js'), next);
     })
     .then(function (data, next) {
-        ajgenesis.copyDirectory(path.join(__dirname, 'templates'), path.join('ajgenesis', 'modules', 'entity', 'templates'), next);
+        ajgenesis.fs.copyDirectory(path.join(__dirname, 'templates'), path.join('ajgenesis', 'modules', 'entity', 'templates'), next);
     })
     .then(function (data, next) {
-        ajgenesis.copyDirectory(path.join(__dirname, 'lib'), path.join('ajgenesis', 'modules', 'entity', 'lib'), cb);
+        ajgenesis.fs.copyDirectory(path.join(__dirname, 'lib'), path.join('ajgenesis', 'modules', 'entity', 'lib'), cb);
     })
     .fail(function (err) {
         cb(err, null);
@@ -32,3 +32,4 @@ function install(ajgenesis, cb) {
 module.exports = {
     install: install
 }
+
