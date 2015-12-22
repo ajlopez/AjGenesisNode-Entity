@@ -11,7 +11,7 @@ module.exports = function (model, args, ajgenesis, cb) {
     }
         
     ajgenesis.createModelDirectory();
-    ajgenesis.createDirectory(ajgenesis.getModelDirectory(), 'entities');
+    ajgenesis.fs.createDirectory(ajgenesis.getModelDirectory(), 'entities');
     
     for (var n in model.entities) {
         var entity = model.entities[n];

@@ -6,7 +6,7 @@ module.exports = function (model, args, ajgenesis, cb) {
     var entityname = args[0];
     
     ajgenesis.createModelDirectory();
-    ajgenesis.createDirectory(ajgenesis.getModelDirectory(), 'entities');
+    ajgenesis.fs.createDirectory(ajgenesis.getModelDirectory(), 'entities');
     var template = path.join(__dirname, 'templates', 'entity.json.tpl');
     var filename = path.join(ajgenesis.getModelDirectory(), 'entities', entityname + '.json');
     
