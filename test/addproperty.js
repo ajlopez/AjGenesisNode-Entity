@@ -1,5 +1,5 @@
-var addpropertytask = require('../addproperty'),
-    addtask = require('../add'),
+var addpropertytask = require('../ajgenesis/modules/entity/addproperty'),
+    addtask = require('../ajgenesis/modules/entity/add'),
     path = require('path'),
     fs = require('fs'),
     fsutils = require('./lib/fsutils'),
@@ -8,6 +8,8 @@ var addpropertytask = require('../addproperty'),
 exports['add property customer name'] = function (test) {
     test.async();
     
+    fsutils.removeDirSync(path.join(__dirname, 'ajgenesis'));
+
     var cwd = process.cwd();
     
     process.chdir('test');
@@ -53,6 +55,8 @@ exports['add properties supplier name and address'] = function (test) {
     
     var cwd = process.cwd();
     
+    fsutils.removeDirSync(path.join(__dirname, 'ajgenesis'));
+
     process.chdir('test');
     
     addtask(null, ['supplier'], ajgenesis, function (err) {
