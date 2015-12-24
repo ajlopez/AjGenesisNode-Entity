@@ -6,7 +6,7 @@
     "nodejs",
     "ajgenesis"
   ],
-  "version": "0.0.9",
+  "version": "0.0.10",
   "author": "Angel 'Java' Lopez <webmaster@ajlopez.com> (http://www.ajlopez.com)",
   "repository": {
     "type": "git",
@@ -20,9 +20,9 @@
     "test": "simpleunit ./test"
   },
   "dependencies": {
-    "simpleasync": "0.0.6"
+    "simpleasync": "0.0.7"
   },
   "devDependencies": {
-    "simpleunit": "0.0.6"
+    "simpleunit": "0.0.7"
   }
 }

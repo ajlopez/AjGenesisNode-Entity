@@ -50,6 +50,7 @@ npm test
 - 0.0.7: Published. Install method
 - 0.0.8: Published. Copy lib directory on install
 - 0.0.9: Published. Using entities folder in model
+- 0.0.10: Published, new directory struct, pre-installed in [AjGenesisNode-Express](https://github.com/ajlopez/AjGenesisNode-Express)
 
 ## Contribution
 
