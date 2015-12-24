@@ -1,5 +1,5 @@
 
-var importtask = require('../import'),
+var importtask = require('../ajgenesis/modules/entity/import'),
     path = require('path'),
     fs = require('fs'),
     fsutils = require('./lib/fsutils'),
