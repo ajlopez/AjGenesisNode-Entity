@@ -13,13 +13,56 @@ exports['add property customer name'] = function (test) {
     var cwd = process.cwd();
     
     process.chdir('test');
-    fsutils.removeDirSync('ajgenesis');
     
     addtask(null, ['customer'], ajgenesis, function (err) {
         if (err)
             throw err;
             
         addpropertytask(null, ['customer', 'name'], ajgenesis, function (err) {            
+            var model = ajgenesis.loadModel(path.join(__dirname, 'ajgenesis', 'models'));
+            
+            test.ok(model);
+            test.ok(model.entities);
+            test.ok(model.entities.customer);
+            
+            var entity = model.entities.customer;
+            
+            test.equal(entity.name, "customer");
+            test.equal(entity.setname, "customers");
+            test.equal(entity.descriptor, "Customer");
+            test.equal(entity.setdescriptor, "Customers");
+            
+            test.ok(entity.properties);
+            test.ok(Array.isArray(entity.properties));
+            test.equal(entity.properties.length, 1);
+            
+            var property = entity.properties[0];
+            
+            test.equal(property.name, "name");
+            test.equal(property.descriptor, "Name");
+            
+            fsutils.removeDirSync(path.join(__dirname, 'ajgenesis'));
+            test.done();
+        });
+    });
+    
+    process.chdir(cwd);
+}
+
+exports['add property customer name using builddir'] = function (test) {
+    test.async();
+    
+    fsutils.removeDirSync(path.join(__dirname, 'ajgenesis'));
+
+    var cwd = process.cwd();
+
+    var model = { builddir: 'test' };
+    
+    addtask(model, ['customer'], ajgenesis, function (err) {
+        if (err)
+            throw err;
+            
+        addpropertytask(model, ['customer', 'name'], ajgenesis, function (err) {            
             var model = ajgenesis.loadModel(path.join(__dirname, 'ajgenesis', 'models'));
             
             test.ok(model);
