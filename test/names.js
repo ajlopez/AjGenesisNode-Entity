@@ -1,5 +1,5 @@
 
-var names = require('../lib/names');
+var names = require('../ajgenesis/modules/entity/lib/names');
 
 exports['Get name'] = function (test) {
     test.equal(names.getName('name'), 'name');

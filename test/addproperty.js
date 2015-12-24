@@ -58,23 +58,23 @@ exports['add property customer name using builddir'] = function (test) {
 
     var model = { builddir: 'test' };
     
-    addtask(model, ['customer'], ajgenesis, function (err) {
+    addtask(model, ['employee'], ajgenesis, function (err) {
         if (err)
             throw err;
             
-        addpropertytask(model, ['customer', 'name'], ajgenesis, function (err) {            
+        addpropertytask(model, ['employee', 'name'], ajgenesis, function (err) {            
             var model = ajgenesis.loadModel(path.join(__dirname, 'ajgenesis', 'models'));
             
             test.ok(model);
             test.ok(model.entities);
-            test.ok(model.entities.customer);
+            test.ok(model.entities.employee);
             
-            var entity = model.entities.customer;
+            var entity = model.entities.employee;
             
-            test.equal(entity.name, "customer");
-            test.equal(entity.setname, "customers");
-            test.equal(entity.descriptor, "Customer");
-            test.equal(entity.setdescriptor, "Customers");
+            test.equal(entity.name, "employee");
+            test.equal(entity.setname, "employees");
+            test.equal(entity.descriptor, "Employee");
+            test.equal(entity.setdescriptor, "Employees");
             
             test.ok(entity.properties);
             test.ok(Array.isArray(entity.properties));
